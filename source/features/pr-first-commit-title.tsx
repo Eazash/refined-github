@@ -75,6 +75,13 @@ void features.add(import.meta.url, {
 	include: [
 		pageDetect.isCompare,
 	],
+	exclude: [
+		() => {
+			const flag = new URLSearchParams(location.search).has('title');
+			console.log({flag})
+			return flag;
+		}
+	],
 	deduplicate: 'has-rgh',
 	init,
 });
